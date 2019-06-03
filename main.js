@@ -2,6 +2,19 @@ var http = require("http");
 var express = require("express");
 var app = express();
 var morgan = require("morgan");
+var mongoose = require("mongoose");
+
+const uri = "mongodb://jogirajuvvsl:vzc92096@ds014388.mlab.com:14388/qnadatabase";
+
+mongoose.connect(uri,   { useNewUrlParser: true },function(error) {
+   if(error)
+   {
+     console.log(error);
+   }else {
+      console.log("connected to database");
+   }
+ });
+
 
 // middleware
 app.use(morgan('dev'));
